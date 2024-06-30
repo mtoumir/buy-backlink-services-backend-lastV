@@ -18,3 +18,15 @@ export const validateMyUserRequest = [
     body("city").isString().notEmpty().withMessage("City is required"),
     handleValidationErrors,
 ]
+
+export const validateMyBacklinkRequest = [
+    body("url").notEmpty().withMessage("URL is required"),
+    body("price").isFloat({min: 0}).notEmpty().withMessage("Price is required"),
+    body("traffic").isInt({min:0}).notEmpty().withMessage("Traffic is required"),
+    body("domainRanking").isInt({min:0, max: 100}).notEmpty().withMessage("Domain Rating is required"),
+    body("domainAuthority").isInt({min:0, max: 100}).notEmpty().withMessage("Domain Authority is required"),
+    body("language").notEmpty().withMessage("Language is required"),
+    body("categories").isArray().withMessage("Category is required").not().notEmpty().withMessage("Category is required"),
+    body("description").notEmpty().withMessage("Description is required"),
+    handleValidationErrors,
+]
